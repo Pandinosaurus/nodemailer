@@ -1,9 +1,16 @@
 /* eslint no-console: 0 */
 
-'use strict';
+// To run this example, install the optional NTLM helper alongside nodemailer:
+//   npm install nodemailer-ntlm-auth
+// It is not bundled with nodemailer because of an unfixed transitive
+// underscore advisory (GHSA-qpx9-hpmf-5gmw); the helper is unmaintained.
 
-const nodemailer = require('../lib/nodemailer');
-const nodemailerNTLMAuth = require('nodemailer-ntlm-auth');
+import nodemailer from 'nodemailer';
+import nodemailerNTLMAuth from 'nodemailer-ntlm-auth';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Generate SMTP service account from ethereal.email
 nodemailer.createTestAccount((err, account) => {

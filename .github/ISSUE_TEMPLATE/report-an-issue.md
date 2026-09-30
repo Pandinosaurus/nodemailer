@@ -4,7 +4,8 @@ about: Report an issue with Nodemailer
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
-Please file only bugs here. Support and feature requests might get closed without a response.
+Please file only reproducible bugs. Everything else will get ignored.
+
+See the FAQ for existing known issues [here](https://github.com/nodemailer/nodemailer#having-an-issue) before you submit a new one.

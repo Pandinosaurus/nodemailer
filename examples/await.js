@@ -1,8 +1,10 @@
 /* eslint no-console: 0 */
 
-'use strict';
+import nodemailer from 'nodemailer';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const nodemailer = require('../lib/nodemailer');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function main() {
     // Generate SMTP service account from ethereal.email
@@ -30,7 +32,7 @@ async function main() {
             // default message fields
 
             // sender info
-            from: 'Pangalink <no-reply@pangalink.net>',
+            from: `<${account.user}>`,
             headers: {
                 'X-Laziness-level': 1000 // just an example header, no need to use this
             }
@@ -40,7 +42,7 @@ async function main() {
     // Message object
     let message = {
         // Comma separated list of recipients
-        to: 'Andris Reinman <andris.reinman@gmail.com>',
+        to: 'Andris Reinman <andris@ethereal.email>',
 
         // Subject of the message
         subject: 'Nodemailer is unicode friendly ✔',
